@@ -97,7 +97,7 @@ const searchableLinks=[...document.querySelectorAll('#primary-nav a,.footer-link
 
 function renderSearch(query=''){
   if(!searchResults)return;
-  const term=query.trim().toLowerCase();
+  const term=query.trim().toLowerCase().replace(/\bfees\b/g,'fee');
   const matches=(term?searchableLinks.filter(item=>`${item.label} ${item.href}`.toLowerCase().includes(term)):searchableLinks.slice(0,8)).slice(0,12);
   searchResults.innerHTML=matches.length?matches.map(item=>`<a href="${item.href}">${item.label}</a>`).join(''):'<p class="search-empty">No matching resource found. Try “fees”, “calendar”, “results” or “campus”.</p>';
 }

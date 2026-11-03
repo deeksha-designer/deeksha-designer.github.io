@@ -503,7 +503,7 @@ body{color:var(--ink)}
 .about-facts strong{font-variant-numeric:tabular-nums}
 .editorial-feed>a:not(.feature-story) img{height:225px;min-height:185px}
 
-.site-search{width:min(920px,calc(100vw - 40px));max-height:min(760px,calc(100dvh - 40px));padding:0;border:0;background:#fff;color:var(--ink)}
+.site-search{z-index:100;width:min(920px,calc(100vw - 40px));max-height:min(760px,calc(100dvh - 40px));padding:0;border:0;background:#fff;color:var(--ink)}
 .site-search::backdrop{background:rgba(14,29,35,.78)}
 .search-shell{position:relative;padding:58px clamp(24px,6vw,72px) 64px}
 .search-shell form{position:absolute;top:20px;right:20px}.search-close{width:44px;height:44px;border:1px solid #c8d1d4;background:#fff;color:var(--ink);font-size:28px;line-height:1;cursor:pointer}
