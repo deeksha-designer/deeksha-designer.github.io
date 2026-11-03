@@ -119,3 +119,13 @@ searchInput?.addEventListener('input',()=>renderSearch(searchInput.value));
 searchResults?.addEventListener('click',event=>{if(event.target.closest('a'))searchDialog.close()});
 searchDialog?.addEventListener('click',event=>{if(event.target===searchDialog)searchDialog.close()});
 
+const starTrack=document.querySelector('.star-track');
+const moveStarTrack=direction=>{
+  if(!starTrack)return;
+  const card=starTrack.querySelector('.star-card');
+  const distance=(card?.getBoundingClientRect().width||starTrack.clientWidth*.8)+18;
+  starTrack.scrollBy({left:direction*distance,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+};
+document.querySelector('.star-prev')?.addEventListener('click',()=>moveStarTrack(-1));
+document.querySelector('.star-next')?.addEventListener('click',()=>moveStarTrack(1));
+

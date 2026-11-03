@@ -655,3 +655,55 @@ body{color:var(--ink)}
 .visit.section{
   padding:80px 0;
 }
+
+/* 2026 typography and colour direction. Exact Adobe fonts load when the
+   project owner supplies a published Adobe Fonts Web Project stylesheet. */
+:root{
+  --font-display:'novantique-serif-display','Novantique Serif Display',Georgia,serif;
+  --font-body:'museo-sans','Museo Sans','Montserrat',Arial,sans-serif;
+  --red-surface:#7b3540;
+}
+body,button,input,textarea,select,.button,.admission-cta,.text-link,.hero-secondary{font-family:var(--font-body)}
+h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news-head h2,.beyond-title h2,.admission-intro h2,.faq h2,.menu-intro strong,.result-explorer #result-panel h3{font-family:var(--font-display)!important}
+.utility-bar,.results,.admissions,.footer-cta{background:var(--red-surface)}
+.result-tabs{background:#642b35}.result-archive{background:#6d303a}
+
+/* Unfiltered school photography in the banner; contrast is carried by type. */
+.hero-slider .slide::after{display:none}
+.slide-copy{filter:drop-shadow(0 2px 10px rgba(0,0,0,.72))}
+
+/* Our Story: video-led composition with proof and action at right. */
+.about{grid-template-columns:minmax(0,1.38fr) minmax(340px,.62fr);gap:42px 70px;align-items:start}
+.about .section-heading{grid-column:1/-1}
+.about-video{grid-column:1;position:relative;aspect-ratio:16/9;overflow:hidden;background:#132f3a}
+.about-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.about-story{grid-column:2;display:flex;flex-direction:column;align-items:flex-start}
+.about-story>p{margin:0 0 18px;color:var(--ink);font-size:17px;line-height:1.65}
+.about-story>p:first-child{font-family:var(--font-display);font-size:24px;line-height:1.35}
+.about-story .about-facts{position:static;display:grid;grid-template-columns:1fr;width:100%;gap:0;margin:16px 0 30px}
+.about-story .about-facts p{display:grid;grid-template-columns:92px 1fr;align-items:center;gap:16px;padding:15px 0;border-top:2px solid #e6ddd5}
+.about-story .about-facts strong{font-family:var(--font-display);font-size:31px;color:var(--red)}
+.about-story .about-facts span{color:var(--ink);font-size:13px;line-height:1.4}
+
+/* Verified Star Kids: official result proof plus a keyboard-scrollable slider. */
+.star-kids{width:100%;max-width:none;padding-right:var(--frame-gutter);padding-left:var(--frame-gutter);display:grid;grid-template-columns:minmax(280px,.55fr) minmax(0,1.45fr);gap:70px;background:#f4f0e8}
+.star-kids-head{align-self:center}.star-kids-head h2{margin:0;font-family:var(--font-display);font-size:clamp(38px,4vw,58px);font-weight:600;line-height:1.02;text-wrap:balance}
+.star-kids-head>p:not(.section-context){max-width:44ch;margin:24px 0;color:var(--muted)}
+.star-controls{display:flex;gap:10px;margin-top:30px}.star-controls button{width:48px;height:48px;border:0;background:var(--red);color:#fff;font-size:20px;cursor:pointer}.star-controls button:hover,.star-controls button:focus-visible{background:var(--red-surface)}
+.star-showcase{min-width:0;display:grid;grid-template-columns:260px minmax(0,1fr);gap:22px;align-items:stretch}
+.star-source{position:relative;display:block;min-height:410px;overflow:hidden;background:#fff;text-decoration:none}
+.star-source img{width:100%;height:100%;object-fit:cover;object-position:top}
+.star-source span{position:absolute;right:0;bottom:0;left:0;padding:15px 18px;background:#fff;color:var(--red);font-size:12px;font-weight:700}
+.star-track{display:flex;min-width:0;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;outline-offset:5px}.star-track::-webkit-scrollbar{display:none}
+.star-card{flex:0 0 min(78%,420px);min-height:410px;padding:42px 34px;display:flex;flex-direction:column;justify-content:flex-end;scroll-snap-align:start;background:#fff;border-top:8px solid var(--blue)}
+.star-card>span{margin-bottom:auto;color:var(--red);font-family:var(--font-display);font-size:clamp(58px,6vw,92px);line-height:.9}
+.star-card h3{max-width:9ch;margin:30px 0 12px;font-family:var(--font-display);font-size:34px;line-height:1.05}.star-card p{margin:0;color:var(--muted);font-size:13px}
+
+@media(max-width:980px){
+  .about{grid-template-columns:1fr}.about .section-heading,.about-video,.about-story{grid-column:1}
+  .star-kids{grid-template-columns:1fr;gap:40px}.star-showcase{grid-template-columns:220px minmax(0,1fr)}
+}
+@media(max-width:680px){
+  .about{gap:30px}.about-story>p:first-child{font-size:21px}
+  .star-kids{padding-right:22px;padding-left:22px}.star-showcase{display:block}.star-source{min-height:0;aspect-ratio:4/5;margin-bottom:18px}.star-card{flex-basis:86%;min-height:330px;padding:30px 24px}.star-card h3{font-size:29px}
+}
