@@ -66,3 +66,43 @@ heroSlider?.addEventListener('pointerup',event=>{const distance=event.clientX-sw
 
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const sections=document.querySelectorAll('main .section');sections.forEach(section=>section.classList.add('reveal'));const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.08});sections.forEach(section=>observer.observe(section))}
 
+const countNumbers=[...document.querySelectorAll('[data-count]')];
+if(countNumbers.length&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  countNumbers.forEach(number=>number.textContent='0');
+  const countObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const number=entry.target;
+    const target=Number(number.dataset.count);
+    const start=performance.now();
+    const duration=1100;
+    const update=now=>{
+      const progress=Math.min((now-start)/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      number.textContent=Math.round(target*eased).toLocaleString('en-IN',{useGrouping:false});
+      if(progress<1)requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+    countObserver.unobserve(number);
+  }),{threshold:.55});
+  countNumbers.forEach(number=>countObserver.observe(number));
+}
+
+const searchDialog=document.querySelector('#site-search');
+const searchOpen=document.querySelector('.search-open');
+const searchInput=document.querySelector('#site-search-input');
+const searchResults=document.querySelector('.search-results');
+const searchableLinks=[...document.querySelectorAll('#primary-nav a,.footer-links a,main a[href]')]
+  .filter((link,index,links)=>link.textContent.trim()&&links.findIndex(item=>item.href===link.href)===index)
+  .map(link=>({label:link.textContent.replace(/[↗→]/g,'').trim(),href:link.getAttribute('href')}));
+
+function renderSearch(query=''){
+  if(!searchResults)return;
+  const term=query.trim().toLowerCase();
+  const matches=(term?searchableLinks.filter(item=>`${item.label} ${item.href}`.toLowerCase().includes(term)):searchableLinks.slice(0,8)).slice(0,12);
+  searchResults.innerHTML=matches.length?matches.map(item=>`<a href="${item.href}">${item.label}</a>`).join(''):'<p class="search-empty">No matching resource found. Try “fees”, “calendar”, “results” or “campus”.</p>';
+}
+searchOpen?.addEventListener('click',()=>{renderSearch();searchDialog.showModal();requestAnimationFrame(()=>searchInput?.focus())});
+searchInput?.addEventListener('input',()=>renderSearch(searchInput.value));
+searchResults?.addEventListener('click',event=>{if(event.target.closest('a'))searchDialog.close()});
+searchDialog?.addEventListener('click',event=>{if(event.target===searchDialog)searchDialog.close()});
+
