@@ -3,12 +3,25 @@ const nav=document.querySelector('#primary-nav');
 const navTriggers=[...document.querySelectorAll('.nav-trigger')];
 
 function closeMenus(except=null){navTriggers.forEach(trigger=>{if(trigger!==except)trigger.setAttribute('aria-expanded','false')})}
+let menuCloseTimer;
+function openDesktopMenu(trigger){
+  clearTimeout(menuCloseTimer);
+  closeMenus(trigger);
+  trigger.setAttribute('aria-expanded','true');
+}
+function scheduleDesktopMenuClose(trigger){
+  clearTimeout(menuCloseTimer);
+  menuCloseTimer=setTimeout(()=>trigger.setAttribute('aria-expanded','false'),180);
+}
 navTriggers.forEach(trigger=>{
   trigger.addEventListener('click',()=>{const open=trigger.getAttribute('aria-expanded')==='true';closeMenus(trigger);trigger.setAttribute('aria-expanded',String(!open))});
-  trigger.parentElement.addEventListener('mouseenter',()=>{if(innerWidth>1180){closeMenus(trigger);trigger.setAttribute('aria-expanded','true')}});
-  trigger.parentElement.addEventListener('mouseleave',()=>{if(innerWidth>1180)trigger.setAttribute('aria-expanded','false')});
+  const navItem=trigger.parentElement;
+  const menu=document.querySelector(`#${trigger.getAttribute('aria-controls')}`);
+  trigger.addEventListener('mouseenter',()=>{if(innerWidth>1180)openDesktopMenu(trigger)});
+  navItem.addEventListener('mouseleave',()=>{if(innerWidth>1180)scheduleDesktopMenuClose(trigger)});
+  menu.addEventListener('mouseenter',()=>clearTimeout(menuCloseTimer));
+  menu.addEventListener('mouseleave',()=>{if(innerWidth>1180)scheduleDesktopMenuClose(trigger)});
   trigger.addEventListener('keydown',event=>{
-    const menu=document.querySelector(`#${trigger.getAttribute('aria-controls')}`);
     if(['ArrowDown','Enter',' '].includes(event.key)){
       event.preventDefault();closeMenus(trigger);trigger.setAttribute('aria-expanded','true');menu.querySelector('a')?.focus();
     }
