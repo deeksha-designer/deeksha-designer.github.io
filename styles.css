@@ -933,3 +933,52 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   .star-showcase::after{width:48px;height:380px}
   .star-footer{align-items:flex-start;flex-direction:column}.star-footer .star-controls{margin:0 0 0 auto}
 }
+
+/* Twelve separate Class XII profile cards: image left, result context right. */
+.star-profile{
+  flex:0 0 calc((100% - 22px)/2);
+  height:310px;
+  display:grid;
+  grid-template-columns:46% 54%;
+  border-radius:0;
+  background:#fff;
+}
+.star-profile>img{width:100%;height:310px;object-fit:cover}
+.star-profile>div{padding:34px;display:flex;min-width:0;flex-direction:column;justify-content:center}
+.star-profile strong{color:var(--red);font-family:var(--font-display);font-size:54px;font-weight:800;line-height:.95}
+.star-profile h3{margin:22px 0 8px;font-family:var(--font-display);font-size:24px;font-weight:800;line-height:1.1}
+.star-profile p{max-width:24ch;margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.star-showcase::after{height:310px}
+
+/* Footer and utility contrast on their new light surfaces. */
+.footer-meta,.footer-meta address,.footer-meta p{color:#000}
+.footer-socials .social-icon{border-color:rgba(0,0,0,.35);color:#9a1d31}
+.footer-socials .social-icon:hover{background:#9a1d31;color:#fff}
+.footer-socials .back-top{color:#000;font-weight:700}
+.footer-wordmark{
+  background:linear-gradient(to bottom,rgba(30,37,39,1),rgba(30,37,39,0));
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+.utility-bar,.utility-bar a,.utility-bar button{color:#000}
+.utility-actions svg{stroke:var(--red)}
+
+/* Keep every banner subtitle on one readable line; the title remains two lines. */
+.slide-copy>span{max-width:none;white-space:nowrap;font-size:14px}
+.slide-copy h1,.slide-copy h2{white-space:normal}
+.footer-cta h2 em{text-align:right}
+
+@media(max-width:900px){
+  .star-profile{flex-basis:72vw;height:290px;grid-template-columns:44% 56%}
+  .star-profile>img{height:290px}.star-profile>div{padding:26px}.star-profile strong{font-size:46px}
+  .star-showcase::after{height:290px}
+}
+@media(max-width:680px){
+  .slide-copy>span{font-size:12px;white-space:nowrap}
+  .star-profile{flex-basis:88vw;height:250px;grid-template-columns:43% 57%}
+  .star-profile>img{height:250px}.star-profile>div{padding:20px}.star-profile strong{font-size:38px}.star-profile h3{margin-top:16px;font-size:20px}.star-profile p{font-size:12px}
+  .star-showcase::after{height:250px}
+  .footer-cta h2 em{text-align:left}
+}

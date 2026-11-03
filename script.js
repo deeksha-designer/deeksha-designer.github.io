@@ -122,8 +122,9 @@ searchDialog?.addEventListener('click',event=>{if(event.target===searchDialog)se
 const starTrack=document.querySelector('.star-track');
 const moveStarTrack=direction=>{
   if(!starTrack)return;
-  const card=starTrack.querySelector('.star-card');
-  const distance=(card?.getBoundingClientRect().width||starTrack.clientWidth*.8)+18;
+  const card=starTrack.querySelector('.star-profile');
+  const gap=parseFloat(getComputedStyle(starTrack).columnGap)||0;
+  const distance=(card?.getBoundingClientRect().width||starTrack.clientWidth*.8)+gap;
   starTrack.scrollBy({left:direction*distance,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
 };
 document.querySelector('.star-prev')?.addEventListener('click',()=>moveStarTrack(-1));
