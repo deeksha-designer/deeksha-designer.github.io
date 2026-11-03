@@ -296,3 +296,72 @@ main .section.reveal{opacity:0;transform:translateY(28px)}main .section.reveal.i
   .result-archive{display:block}
   .admission-intro h2{font-size:clamp(38px,11vw,48px);line-height:1.02}
 }
+
+/* November live refinement: one 1360px frame, aligned results and editorial footer */
+:root{--frame-width:min(1360px,calc(100vw - 48px));--frame-gutter:max(24px,calc((100vw - 1360px)/2))}
+
+/* Every contained section now shares the same physical left and right edges. */
+.nav-shell,.about,.why,.news,.faq{width:var(--frame-width);max-width:1360px;padding-right:0;padding-left:0}
+.journey>.section-heading,.journey-layout,.campus>.section-heading,.campus-detail,.why-heading,.why-viewport{width:var(--frame-width);max-width:1360px;padding-right:0;padding-left:0}
+.beyond,.admissions,.principal,.results,.footer-cta{padding-right:var(--frame-gutter);padding-left:var(--frame-gutter)}
+
+/* Campus heading follows the common heading rhythm without the inherited empty grid row. */
+.campus{padding-top:80px;padding-bottom:48px}
+.campus .section-heading{display:grid;grid-template-columns:1.5fr .8fr;max-width:1360px;column-gap:7vw;row-gap:0;align-items:end}
+.campus .section-heading .section-context{grid-column:1/-1;margin:0 0 10px!important}
+.campus .section-heading h2,.campus .section-heading>p:last-child{margin-top:0}
+.campus-marquee{margin-top:34px}
+
+/* Results: a stable 80/20 dossier with one baseline and equal-height columns. */
+.results{width:100%;max-width:none;margin:0;padding-top:80px;padding-bottom:80px;grid-template-columns:minmax(0,4fr) minmax(250px,1fr);grid-template-rows:auto auto;gap:22px;background:var(--red);color:#fff}
+.results .section-heading{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.42fr);column-gap:6vw;align-items:end;margin:0 0 18px;padding:0}
+.results .section-heading .section-context{grid-column:1/-1;margin-bottom:10px!important}
+.results .section-heading h2{grid-column:1;color:#fff}
+.results .section-heading>p:last-child{grid-column:2;margin:0;color:#fff0e5}
+.result-explorer{grid-column:1;grid-row:2;min-width:0;height:100%;align-self:stretch}
+.result-explorer #result-panel{min-width:0}
+.result-archive{grid-column:2;grid-row:2;display:flex;min-width:0;height:100%;margin:0;flex-direction:column;align-self:stretch;background:#771d30}
+.result-archive>p{flex:0 0 64px;min-height:0;padding:18px 22px}
+.result-archive a{display:grid;flex:1;min-height:86px;padding:20px 22px;border-top:2px solid rgba(255,255,255,.14);border-left:0;background:transparent}
+
+/* Flat editorial actions replace the generic boxed CTA treatment. */
+.button,.admission-cta{min-height:50px;border:0;border-radius:0;padding:13px 22px;background:var(--red);box-shadow:inset 0 -3px 0 rgba(70,12,28,.3);letter-spacing:0;transition:transform .18s ease-out,background-color .18s ease-out,box-shadow .18s ease-out}
+.button:hover,.admission-cta:hover{transform:translateX(4px);background:var(--red-dark);box-shadow:inset 0 -3px 0 rgba(255,255,255,.2)}
+.button.outline{border:2px solid currentColor;background:transparent;box-shadow:none}
+.button.outline:hover{transform:translateX(4px)}
+.hero-actions .button{background:#fff;color:var(--red);box-shadow:inset 0 -3px 0 var(--red)}
+.results .button{background:var(--ink);color:#fff;box-shadow:inset 0 -3px 0 var(--red)}
+.text-link,.hero-secondary{font-weight:750;text-decoration-thickness:2px;text-underline-offset:6px}
+
+/* Requested taller campus photograph. */
+.visit-photo img{height:620px;min-height:620px;max-height:620px;object-fit:cover}
+
+/* A more distinctive, brand-led close in deep teal and warm cream. */
+.site-footer{position:relative;overflow:hidden;background:#123b46;color:#fff}
+.footer-cta{padding-top:72px;padding-bottom:72px;background:#fff0e5;color:var(--ink)}
+.footer-cta p{color:var(--red)}.footer-cta h2{color:var(--ink)}.footer-cta em{color:var(--red)}
+.footer-cta .button{background:var(--red);color:#fff;box-shadow:inset 0 -3px 0 var(--red-dark)}
+.footer-cta>div:last-child>a:not(.button){color:var(--ink)}
+.footer-main{position:relative;width:var(--frame-width);max-width:1360px;margin:auto;padding:118px 0 72px;grid-template-columns:.68fr 1.32fr;gap:8vw}
+.footer-main::before{position:absolute;top:26px;right:0;left:0;content:"SCHOLARS PRIDE";color:rgba(255,255,255,.1);font-family:'Montserrat',Arial,sans-serif;font-size:clamp(42px,7.2vw,98px);font-weight:800;line-height:1;letter-spacing:-.055em;white-space:nowrap}
+.footer-identity .brand strong{color:#fff}.footer-identity .brand small{color:#b8e2eb}
+.footer-identity p{color:#d2e3e6}.footer-identity address{color:#fff}
+.footer-links h2{color:#ffb8c6}.footer-links a{color:#dcebee}.footer-links a:hover{color:#fff}
+.footer-bottom{width:var(--frame-width);max-width:1360px;padding:26px 0;border-top:2px solid rgba(255,255,255,.18);color:#b8d0d5}
+
+@media(max-width:900px){
+  :root{--frame-width:calc(100vw - 44px);--frame-gutter:22px}
+  .campus .section-heading{display:block}.campus .section-heading>p:last-child{margin-top:18px}
+  .results{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+  .results .section-heading{grid-column:1;display:block}.results .section-heading>p:last-child{margin-top:18px}
+  .result-explorer{grid-column:1;grid-row:2}.result-archive{grid-column:1;grid-row:3;display:grid;grid-template-columns:repeat(3,1fr)}
+  .result-archive>p{grid-column:1/-1}.result-archive a{border-left:2px solid rgba(255,255,255,.14)}
+  .footer-main{grid-template-columns:1fr;padding-top:104px}.footer-main .footer-links{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  :root{--frame-width:calc(100vw - 44px)}
+  .campus{padding-top:64px;padding-bottom:36px}.campus-marquee{margin-top:28px}
+  .result-archive{display:block}.result-archive a{border-left:0}
+  .visit-photo img{height:420px;min-height:420px;max-height:420px}
+  .footer-cta{padding:58px 22px}.footer-main{padding:92px 0 54px}.footer-main::before{top:28px;font-size:38px}.footer-bottom{padding:24px 0}
+}
