@@ -870,3 +870,66 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   .star-result-note,.star-card,.star-placeholder{flex:0 0 82vw;height:410px;min-height:410px}
   .faq .section-heading h2{max-width:none;font-size:34px}.faq .section-heading h2 .script-word{white-space:nowrap}
 }
+
+/* Unified display scale and final light-surface refinements. */
+.utility-bar{background:#efefed;color:var(--ink)}
+.utility-bar svg{stroke:var(--ink)}
+.utility-actions>a:hover,.search-open:hover{background:#e3e3df;color:var(--ink)}
+
+.slide-copy{
+  max-width:650px;
+  padding:26px 30px 28px;
+  background:rgba(255,250,246,.94);
+  color:var(--ink);
+}
+.slide-copy h1,.slide-copy h2,.slide-copy>p,.slide-copy>span{color:var(--ink);text-shadow:none}
+.slide-copy em{color:var(--red)}
+
+.slide-copy h1,.slide-copy h2,
+.section-heading h2,.why-heading h2,.news-head h2,.beyond-title h2,
+.admission-intro h2,.faq h2,.principal-card h2,.star-kids-head h2,.footer-cta h2{
+  font-size:56px!important;
+  font-weight:800!important;
+  letter-spacing:0!important;
+  line-height:1.02;
+}
+
+/* Class XII preview: four aligned profiles visible, two more available by slider. */
+.star-kids-head{grid-template-columns:minmax(0,1.25fr) minmax(320px,.55fr);align-items:end}
+.star-kids-head h2{max-width:none}
+.star-kids-head>p:not(.section-context){max-width:55ch;margin:0 0 4px;color:var(--ink)}
+.star-showcase{position:relative}
+.star-showcase::after{position:absolute;z-index:2;top:0;right:0;width:90px;height:390px;background:linear-gradient(to right,rgba(255,246,233,0),#fff6e9);pointer-events:none;content:""}
+.star-track{gap:22px;padding-right:70px}
+.star-profile{flex:0 0 calc((100% - 66px)/4);min-width:0;height:390px;scroll-snap-align:start;overflow:hidden;border-radius:28px;background:#fff}
+.star-profile .star-photo{width:100%;height:270px;margin:0;border-radius:28px 28px 0 0}
+.star-profile h3{margin:22px 22px 4px;font-family:var(--font-display);font-size:24px;font-weight:800;line-height:1.1}
+.star-profile p{margin:0 22px;color:var(--muted);font-size:13px}
+.star-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px}
+.star-footer .star-source-link{margin:0}
+.star-footer .star-controls{position:relative;z-index:3;margin:0 0 0 auto}
+
+.footer-cta h2{max-width:20ch}
+.footer-cta h2 em{display:block}
+.site-footer{background:#eee9e1;color:var(--ink)}
+.site-footer .brand strong,.footer-links h2,.footer-meta,.footer-meta a,.footer-identity address{color:var(--ink)}
+.footer-identity p,.footer-links a{color:#394346}
+.footer-links a:hover{color:var(--red)}
+.footer-wordmark{background:none;color:rgba(30,37,39,.075);-webkit-text-fill-color:rgba(30,37,39,.075)}
+.footer-bottom,.footer-meta{border-color:#d7d0c8}
+
+@media(max-width:1100px){
+  .star-profile{flex-basis:calc((100% - 44px)/3)}
+}
+@media(max-width:900px){
+  .slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news-head h2,.beyond-title h2,.admission-intro h2,.faq h2,.principal-card h2,.star-kids-head h2,.footer-cta h2{font-size:44px!important}
+  .star-profile{flex-basis:calc((100% - 22px)/2)}
+}
+@media(max-width:680px){
+  .slide-copy{padding:20px 22px 22px}
+  .slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news-head h2,.beyond-title h2,.admission-intro h2,.faq h2,.principal-card h2,.star-kids-head h2,.footer-cta h2{font-size:34px!important}
+  .star-kids-head{display:block}.star-kids-head>p:not(.section-context){margin-top:22px}
+  .star-profile{flex-basis:82vw;height:380px}.star-profile .star-photo{height:260px}
+  .star-showcase::after{width:48px;height:380px}
+  .star-footer{align-items:flex-start;flex-direction:column}.star-footer .star-controls{margin:0 0 0 auto}
+}
