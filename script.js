@@ -133,7 +133,7 @@ document.querySelector('.star-next')?.addEventListener('click',()=>moveStarTrack
 // Class XII profiles are explicitly marked samples until the school supplies
 // verified student names, exact scores and approved portraits.
 const starProfileCopy=[
-  ['Ananya Mehta','98.8%','Science stream · Consistent academic focus.'],
+  ['Ananya Mehta','99.9%','Science stream · Consistent academic focus.'],
   ['Aarav Sharma','98.6%','Commerce stream · Thoughtful, disciplined progress.'],
   ['Meher Kapoor','98.4%','Humanities stream · Clear ideas and steady effort.'],
   ['Kabir Malhotra','98.2%','Science stream · Curiosity backed by commitment.'],
