@@ -370,7 +370,7 @@ main .section.reveal{opacity:0;transform:translateY(28px)}main .section.reveal.i
 .section-context{margin:0 0 12px!important;color:var(--red);font-size:12px;font-weight:800;line-height:1.2;text-transform:uppercase}
 
 /* Hero content begins on the same grid line as Our Story. */
-.slide-copy,.hero-actions{left:var(--frame-gutter)}
+.hero-slider .slide-copy,.hero-slider .hero-actions{left:var(--frame-gutter)}
 .slide-copy{max-width:640px}
 
 /* Results content alignment and tighter reading group. */
