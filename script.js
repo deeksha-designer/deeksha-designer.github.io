@@ -133,25 +133,25 @@ document.querySelector('.star-next')?.addEventListener('click',()=>moveStarTrack
 // Class XII profiles are explicitly marked samples until the school supplies
 // verified student names, exact scores and approved portraits.
 const starProfileCopy=[
-  ['Aarav Sharma','98.8%','Science stream · Consistent academic focus.'],
-  ['Ananya Mehta','98.6%','Commerce stream · Thoughtful, disciplined progress.'],
-  ['Kabir Malhotra','98.4%','Humanities stream · Clear ideas and steady effort.'],
-  ['Meher Kapoor','98.2%','Science stream · Curiosity backed by commitment.'],
-  ['Vihaan Gupta','98.0%','Commerce stream · Focused learning across subjects.'],
-  ['Ira Bansal','97.9%','Humanities stream · Confident expression and insight.'],
-  ['Arjun Khanna','97.8%','Science stream · Precise thinking and perseverance.'],
-  ['Myra Sethi','97.7%','Commerce stream · Strong concepts and consistency.'],
-  ['Reyansh Arora','97.6%','Humanities stream · Engaged learning with purpose.'],
-  ['Aadhya Verma','97.5%','Science stream · Patient effort, strong outcomes.'],
-  ['Rohan Nanda','97.4%','Commerce stream · Analytical and self-motivated.'],
-  ['Saanvi Goel','97.2%','Humanities stream · Independent thought and rigour.']
+  ['Ananya Mehta','98.8%','Science stream · Consistent academic focus.'],
+  ['Aarav Sharma','98.6%','Commerce stream · Thoughtful, disciplined progress.'],
+  ['Meher Kapoor','98.4%','Humanities stream · Clear ideas and steady effort.'],
+  ['Kabir Malhotra','98.2%','Science stream · Curiosity backed by commitment.'],
+  ['Ira Bansal','98.0%','Commerce stream · Focused learning across subjects.'],
+  ['Vihaan Gupta','97.9%','Humanities stream · Confident expression and insight.'],
+  ['Myra Sethi','97.8%','Science stream · Precise thinking and perseverance.'],
+  ['Arjun Khanna','97.7%','Commerce stream · Strong concepts and consistency.'],
+  ['Aadhya Verma','97.6%','Humanities stream · Engaged learning with purpose.'],
+  ['Reyansh Arora','97.5%','Science stream · Patient effort, strong outcomes.'],
+  ['Saanvi Goel','97.4%','Commerce stream · Analytical and self-motivated.'],
+  ['Rohan Nanda','97.2%','Humanities stream · Independent thought and rigour.']
 ];
 document.querySelectorAll('.star-profile').forEach((profile,index)=>{
   const [name,score,description]=starProfileCopy[index]||['Demo student','97%+','Verified details required.'];
   const scoreNode=profile.querySelector('strong');
   const nameNode=profile.querySelector('h3');
   const descriptionNode=profile.querySelector('p');
-  if(scoreNode)scoreNode.innerHTML=`${score} <small>sample</small>`;
+  if(scoreNode)scoreNode.textContent=score;
   if(nameNode)nameNode.textContent=name;
   if(descriptionNode)descriptionNode.textContent=description;
 });
