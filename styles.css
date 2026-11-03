@@ -715,3 +715,56 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   .star-kids{padding-right:22px;padding-left:22px}.star-showcase{display:block}.star-source{min-height:0;aspect-ratio:4/5;margin-bottom:18px}.star-card{flex-basis:86%;min-height:330px;padding:30px 24px}.star-card h3{font-size:29px}
   .star-card{min-height:430px;padding:0 22px 28px}.star-photo{width:calc(100% + 44px);height:210px;margin:0 -22px 24px}
 }
+
+/* November 2026: readable two-line banners and quieter editorial surfaces. */
+:root{
+  --soft-blush:#f8eee9;
+  --soft-cream:#fffaf6;
+}
+
+/* Keep every banner statement to two intentional lines without covering the image. */
+.slide-copy{
+  width:min(620px,calc(100vw - 48px));
+  padding:24px 28px 26px;
+  background:rgba(18,28,31,.66);
+  border-left:4px solid rgba(255,255,255,.9);
+  filter:none;
+}
+.slide-copy h1,.slide-copy h2{max-width:none;text-wrap:balance}
+.slide-copy em{display:block;color:#fff;font-size:1em;line-height:inherit}
+.slide-copy>p,.slide-copy>span{text-shadow:0 1px 5px rgba(0,0,0,.55)}
+
+/* The large backgrounds stay quiet; brand red remains an accent and CTA colour. */
+.admissions{background:#fff0e5;color:var(--ink)}
+.admissions .section-context,.admissions .admission-intro h2 em{color:var(--red)}
+.admissions .admission-intro>p,.admissions .admission-route p{color:var(--muted)}
+.admissions .admission-route article{background:var(--soft-cream)}
+.star-kids{background:var(--soft-blush)}
+
+/* Results: white editorial canvas with a warm, high-contrast explorer. */
+.results{background:#fff;color:var(--ink)}
+.results .section-heading h2{color:var(--ink)}
+.results .section-heading .section-context,.results .script-word{color:var(--red)}
+.results .section-heading>p:last-child{color:var(--muted)}
+.result-explorer{background:var(--soft-cream)}
+.result-tabs{background:var(--soft-blush)}
+.result-tabs button{color:var(--ink)}
+.result-tabs button[aria-selected=true]{background:var(--red);color:#fff}
+.result-archive{background:var(--soft-cream)}
+.result-archive>p{background:var(--soft-cream);color:var(--red)}
+.result-archive a{background:#fff;color:var(--ink)}
+.result-archive a:hover{background:var(--soft-blush)}
+
+/* Force the requested statements into clear, balanced two-line lockups. */
+.principal-card h2{max-width:13ch}
+.principal-card h2 .script-word{max-width:none}
+.why-heading h2{max-width:15ch}
+.faq .section-heading h2{max-width:12ch}
+
+@media(max-width:680px){
+  .slide-copy{right:18px;width:auto;padding:20px 20px 22px}
+  .slide-copy h1,.slide-copy h2{font-size:clamp(31px,9.5vw,38px)}
+  .slide-copy>span{max-width:34ch}
+  .results{padding-right:22px;padding-left:22px}
+  .result-tabs button{padding:14px 8px;font-size:13px}
+}
