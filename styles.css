@@ -609,3 +609,22 @@ body{color:var(--ink)}
   .nav-trigger[aria-expanded=true]::before{position:absolute;z-index:47;right:calc(50% - 10px);bottom:-1px;border-right:10px solid transparent;border-bottom:10px solid #f7f7f5;border-left:10px solid transparent;content:""}
 }
 @media(prefers-reduced-motion:reduce){.site-header .nav-item .mega-menu,.site-header .nav-trigger[aria-expanded=true]+.mega-menu{transition:none}}
+
+/* Spacious image-led mega menu and slightly larger school crest. */
+.brand img{width:60px;height:60px}
+@media(min-width:1181px){
+  .site-header .nav-item .mega-menu,.site-header .nav-item .mega-menu.wide{
+    height:336px;min-height:336px;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(300px,.92fr) minmax(310px,.94fr);
+    padding:38px clamp(36px,5vw,96px)!important;
+  }
+  .mega-menu::before{height:260px;min-height:260px;margin:0 30px;background-repeat:no-repeat;background-position:center;background-size:cover}
+  .mega-menu .menu-links,.mega-menu .menu-links.columns{padding:4px 26px 4px 0}
+  .mega-menu .menu-intro{height:260px;min-height:260px;padding:34px 30px}
+}
+@media(max-width:1180px){.brand img{width:58px;height:58px}}
+
+/* Defer below-the-fold rendering without changing layout or interaction. */
+@supports(content-visibility:auto){
+  main>.section{content-visibility:auto;contain-intrinsic-size:auto 780px}
+}
