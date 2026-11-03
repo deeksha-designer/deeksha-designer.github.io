@@ -365,3 +365,83 @@ main .section.reveal{opacity:0;transform:translateY(28px)}main .section.reveal.i
   .visit-photo img{height:420px;min-height:420px;max-height:420px}
   .footer-cta{padding:58px 22px}.footer-main{padding:92px 0 54px}.footer-main::before{top:28px;font-size:38px}.footer-bottom{padding:24px 0}
 }
+
+/* Final art-direction pass */
+.section-context{margin:0 0 12px!important;color:var(--red);font-size:12px;font-weight:800;line-height:1.2;text-transform:uppercase}
+
+/* Hero content begins on the same grid line as Our Story. */
+.slide-copy,.hero-actions{left:var(--frame-gutter)}
+.slide-copy{max-width:640px}
+
+/* Results content alignment and tighter reading group. */
+.result-explorer #result-panel{grid-template-columns:150px minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:center;align-items:start;column-gap:28px;row-gap:8px}
+.result-explorer #result-panel .result-year{grid-column:1;grid-row:1;margin:7px 0 0;align-self:start}
+.result-explorer #result-panel h3{grid-column:2;grid-row:1;align-self:start}
+.result-explorer #result-panel>p:not(.result-year){grid-column:2;grid-row:2;max-width:46ch;margin:0;align-self:start}
+.result-explorer #result-panel .button{grid-column:3;grid-row:1/3;align-self:center}
+.result-archive>p{margin:0;padding:24px;color:var(--red);font-weight:700;background:#fff0e5}
+
+/* Secondary school updates are deliberately compact. */
+.editorial-feed>a:not(.feature-story){min-height:185px}
+.editorial-feed>a:not(.feature-story) img{height:185px;min-height:185px}
+
+/* FAQ colour field spans the viewport while its content remains on the 1360px grid. */
+.faq{width:100%;max-width:none;padding-right:var(--frame-gutter);padding-left:var(--frame-gutter);background:var(--paper)}
+
+/* Restore the approved admissions invitation above the detailed footer. */
+.footer-cta{display:grid;grid-template-columns:1fr auto;align-items:end;gap:60px;padding-top:64px;padding-bottom:64px;background:var(--red);color:#fff}
+.footer-cta p{margin:0 0 12px;color:#ffd8c6}.footer-cta h2{margin:0;color:#fff}.footer-cta em{color:#ffd8c6}.footer-cta .button{background:#fff;color:var(--red);box-shadow:none}.footer-cta>div:last-child>a:not(.button){color:#fff}
+
+/* Footer composition follows the supplied reference with Scholars Pride branding. */
+.site-footer{background:#123f39;color:#fff}
+.footer-main{display:block;width:var(--frame-width);max-width:1360px;margin:auto;padding:72px 0 0}
+.footer-main::before{display:none}
+.footer-main .footer-links{display:grid;grid-template-columns:1fr 1fr 1.1fr 1.1fr 1.35fr;gap:clamp(28px,4vw,64px);margin:0;padding:0 0 54px}
+.footer-links h2{margin:0 0 18px;color:#fff;font-size:14px;text-transform:none}
+.footer-links a{display:block;margin:10px 0;color:#d9ebe5;font-size:13px;line-height:1.45;text-decoration:none}
+.footer-links a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
+.footer-meta{display:flex;justify-content:space-between;gap:40px;padding:30px 0 28px;border-top:1px solid rgba(255,255,255,.22);color:#fff}
+.footer-meta address{margin:0 0 8px;font-style:normal}.footer-meta p{margin:0;color:#c7ddd6;font-size:13px}
+.footer-socials{display:flex;align-items:flex-start;gap:22px;flex-wrap:wrap}.footer-socials a{color:#fff;font-size:13px;text-underline-offset:5px}
+.footer-wordmark{height:clamp(130px,16vw,230px);overflow:hidden;color:rgba(255,255,255,.11);font-family:'Montserrat',Arial,sans-serif;font-size:clamp(72px,12.2vw,176px);font-weight:800;line-height:1;letter-spacing:-.07em;white-space:nowrap}
+
+/* Desktop mega-menu: compact editorial dock with menu-specific fields. */
+@media(min-width:1181px){
+  .mega-menu,.mega-menu.wide,#menu-about,#menu-academics,#menu-life,#menu-admissions,#menu-achievements,#menu-hub{top:116px;left:50%;width:min(1120px,calc(100vw - 48px));grid-template-columns:minmax(300px,.72fr) minmax(0,1.55fr);padding:0;border-top:5px solid var(--red);background:#fff;transform:translate(-50%,12px);box-shadow:0 24px 60px rgba(24,31,33,.18)}
+  .nav-trigger[aria-expanded=true]+.mega-menu{transform:translate(-50%,0)}
+  .menu-intro{min-height:250px;padding:38px 42px;justify-content:flex-end;background:#fff0e5;color:var(--ink)}
+  .menu-intro>span{margin-bottom:12px;color:var(--red);font-size:12px;text-transform:uppercase}
+  .menu-intro strong{max-width:16ch;color:var(--ink);font-family:'Montserrat',Arial,sans-serif;font-size:27px;font-weight:750;line-height:1.15}
+  .menu-intro a{margin-top:22px;color:var(--red);font-size:13px}
+  .menu-links,.menu-links.columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;gap:8px 18px;padding:34px;background:#fff}
+  .menu-links>p{grid-column:1/-1;margin:0 0 8px!important;color:var(--red);font-size:12px;text-transform:uppercase}
+  .menu-links>a,.menu-links div>a{position:relative;min-height:54px;padding:15px 42px 15px 16px;border:0;background:#f8f4f0;color:var(--ink);font-size:13px}
+  .menu-links>a::after,.menu-links div>a::after{position:absolute;right:16px;content:"↗";color:var(--red)}
+  .menu-links>a:hover,.menu-links div>a:hover{padding-left:16px;background:#fff0e5;color:var(--red)}
+  .menu-links.columns div{gap:8px}.menu-links.columns div>p{margin:0 0 2px;color:var(--muted);font-size:12px;text-transform:none}
+  #menu-academics{grid-template-columns:minmax(310px,.68fr) minmax(0,1.6fr)}
+  #menu-life .menu-intro{background:#123f39;color:#fff}#menu-life .menu-intro strong,#menu-life .menu-intro a{color:#fff}#menu-life .menu-intro>span{color:#b9ded3}
+  #menu-admissions .menu-intro{background:var(--red);color:#fff}#menu-admissions .menu-intro strong,#menu-admissions .menu-intro a{color:#fff}#menu-admissions .menu-intro>span{color:#ffd8c6}
+  #menu-achievements .menu-intro{background:#4c2430;color:#fff}#menu-achievements .menu-intro strong,#menu-achievements .menu-intro a{color:#fff}#menu-achievements .menu-intro>span{color:#ffd8c6}
+  #menu-hub .menu-intro{background:#dfeee9}
+}
+
+@media(max-width:1180px){
+  .nav-shell nav.open{background:#fffaf6;padding-top:18px}
+  .nav-trigger,.nav-contact{min-height:60px;font-family:'Montserrat',Arial,sans-serif;font-size:20px}
+  .mega-menu,.mega-menu.wide,#menu-about,#menu-academics,#menu-life,#menu-admissions,#menu-achievements,#menu-hub{background:#fff}
+  .menu-intro{display:block;min-height:0;padding:24px;background:#fff0e5;color:var(--ink)}
+  .menu-intro strong{max-width:28ch;color:var(--ink);font-family:'Montserrat',Arial,sans-serif;font-size:22px;font-weight:750}
+  .menu-intro a{margin-top:14px;color:var(--red)}
+  .menu-links,.menu-links.columns{grid-template-columns:1fr 1fr;gap:8px;padding:16px 24px 26px;background:#fff}
+  .menu-links>a,.menu-links div>a{min-height:48px;padding:12px 14px;background:#f8f4f0;border:0}
+}
+@media(max-width:760px){
+  .slide-copy,.hero-actions{left:22px}
+  .result-explorer #result-panel{display:block}.result-explorer #result-panel .result-year{margin:0 0 5px}.result-explorer #result-panel>p:not(.result-year){margin-top:8px}
+  .editorial-feed>a:not(.feature-story),.editorial-feed>a:not(.feature-story) img{height:auto;min-height:220px}
+  .footer-cta{grid-template-columns:1fr;align-items:start;gap:28px;padding:58px 22px}
+  .footer-main{padding-top:54px}.footer-main .footer-links{grid-template-columns:1fr 1fr;gap:32px 24px;padding-bottom:42px}.footer-links>div:last-child{grid-column:1/-1}
+  .footer-meta{display:block}.footer-socials{margin-top:22px}.footer-wordmark{height:100px;font-size:58px}
+  .menu-links,.menu-links.columns{grid-template-columns:1fr}
+}
