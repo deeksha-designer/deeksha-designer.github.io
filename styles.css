@@ -630,9 +630,13 @@ body{color:var(--ink)}
 }
 
 /* Requested mixed-type search title. */
-.search-shell h2{max-width:none;font-family:'Montserrat',Arial,sans-serif;color:var(--ink)}
+.search-shell h2{display:flex;max-width:none;font-family:'Montserrat',Arial,sans-serif;color:var(--ink);align-items:center;gap:20px}
 .search-shell h2 span{display:block;font-family:'Montserrat',Arial,sans-serif;font-size:.72em;font-style:normal;font-weight:700;line-height:1.05;color:var(--ink)}
-.search-shell h2 em{display:block;margin-top:3px;font-family:'Pinyon Script',cursive;font-size:1.18em;font-style:normal;font-weight:400;line-height:.9;color:#c73664}
+.search-shell h2 em{display:block;margin-top:3px;font-family:'Pinyon Script',cursive;font-size:1.18em;font-style:normal;font-weight:400;line-height:.9;color:#b21f3d}
+
+@media(max-width:680px){
+  .search-shell h2{flex-direction:column;align-items:flex-start;gap:4px}
+}
 
 /* Real menu imagery, aligned to the same 1360px content frame as the page. */
 .menu-image{display:none;margin:0;overflow:hidden}
