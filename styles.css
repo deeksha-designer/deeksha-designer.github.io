@@ -832,3 +832,41 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   .star-source{min-height:0}.star-card{flex:0 0 86%;min-height:430px}
   .principal-card h2{font-size:36px}.principal-card h2 .script-word,.why-heading h2 .script-word{white-space:normal}
 }
+
+/* Star Kids: alternating result and portrait slider, aligned to one horizontal rhythm. */
+.star-kids-head{grid-template-columns:minmax(0,1.2fr) minmax(280px,.55fr)}
+.star-kids-head h2{max-width:none;font-size:clamp(42px,4.4vw,64px);line-height:1.02}
+.star-kids-head h2 span{display:block;color:var(--red)}
+.star-showcase{display:block}
+.star-track{display:flex;gap:22px;overflow-x:auto;scroll-padding-left:0;scroll-snap-type:x mandatory}
+.star-result-note,.star-card,.star-placeholder{flex:0 0 min(29vw,390px);height:420px;min-height:420px;scroll-snap-align:start;overflow:hidden}
+.star-result-note{padding:38px;display:flex;flex-direction:column;justify-content:flex-end;background:#f4ede2;border-radius:28px;color:var(--ink)}
+.star-result-note.alt{background:#fceded}
+.star-result-note>span{margin-bottom:auto;color:var(--red);font-family:var(--font-display);font-size:clamp(58px,6vw,84px);line-height:.9}
+.star-result-note strong{font-family:var(--font-display);font-size:30px;line-height:1.05}
+.star-result-note p{margin:12px 0 0;color:var(--muted);font-size:14px}
+.star-card{padding:0 26px 28px;border-radius:28px;background:#fff}
+.star-photo{width:calc(100% + 52px);height:250px;margin:0 -26px 24px;border-radius:28px 28px 0 0}
+.star-card>span{margin:0 0 8px;font-size:52px}.star-card h3{font-size:28px}
+.star-placeholder{position:relative;border-radius:28px;background:#eee}
+.star-placeholder img{width:100%;height:100%;object-fit:cover}
+.star-placeholder span{position:absolute;right:0;bottom:0;left:0;padding:14px 18px;background:#fff;color:var(--ink);font-size:12px;font-weight:700}
+.star-source-link{display:inline-flex;margin-top:26px;color:var(--red);font-size:14px;font-weight:800;text-underline-offset:5px}
+
+/* Requested surface and exact headline/footer refinements. */
+.result-explorer #result-panel{background:#fff}
+.faq .section-heading h2{max-width:18ch}
+.faq .section-heading h2 .script-word{display:block;white-space:nowrap}
+.footer-cta{background:#9a1d31}
+.site-footer{background:#153f49}
+.footer-links a{display:block;margin:10px 0;color:#d9ebe5;font-size:16px;line-height:2;text-decoration:none}
+.footer-links h2{margin:0 0 18px;color:#fff;font-size:16px;text-transform:none}
+
+@media(max-width:980px){
+  .star-result-note,.star-card,.star-placeholder{flex-basis:42vw}
+}
+@media(max-width:680px){
+  .star-kids-head h2{font-size:36px}
+  .star-result-note,.star-card,.star-placeholder{flex:0 0 82vw;height:410px;min-height:410px}
+  .faq .section-heading h2{max-width:none;font-size:34px}.faq .section-heading h2 .script-word{white-space:nowrap}
+}
