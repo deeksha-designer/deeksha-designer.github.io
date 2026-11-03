@@ -564,3 +564,8 @@ body{color:var(--ink)}
 @media(max-width:900px){.utility-bar{height:32px}.nav-shell nav{inset:116px 0 0}.search-results{grid-template-columns:1fr 1fr}.mega-menu::before{display:none}.footer-main,.footer-meta,.footer-wordmark{width:calc(100% - 44px)}}
 @media(max-width:680px){.utility-bar{height:32px;padding-right:14px;padding-left:14px}.nav-shell nav{inset:110px 0 0}.search-results{grid-template-columns:1fr}.search-results a{font-size:12px}.footer-main,.footer-meta,.footer-wordmark{width:calc(100% - 44px)}}
 @media(prefers-reduced-motion:reduce){.site-search[open]{animation:none}}
+
+/* Full-bleed closing wordmark: always fits without clipping. */
+.footer-wordmark{display:flex;width:100%;max-width:none;height:auto;min-height:clamp(108px,14vw,230px);margin:0;padding:18px clamp(22px,4vw,72px) 0;align-items:flex-end;overflow:hidden;font-size:min(12.2vw,230px);line-height:.82;letter-spacing:-.075em;white-space:nowrap}
+@media(max-width:900px){.footer-wordmark{width:100%;min-height:110px;padding-right:22px;padding-left:22px;font-size:11.7vw}}
+@media(max-width:480px){.footer-wordmark{min-height:82px;font-size:11.2vw;letter-spacing:-.08em}}
