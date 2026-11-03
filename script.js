@@ -130,3 +130,29 @@ const moveStarTrack=direction=>{
 document.querySelector('.star-prev')?.addEventListener('click',()=>moveStarTrack(-1));
 document.querySelector('.star-next')?.addEventListener('click',()=>moveStarTrack(1));
 
+// Class XII profiles remain explicit design placeholders until the school
+// supplies verified student names and exact scores.
+const starProfileCopy=[
+  ['98.8%','Science stream · Consistent academic focus.'],
+  ['98.6%','Commerce stream · Thoughtful, disciplined progress.'],
+  ['98.4%','Humanities stream · Clear ideas and steady effort.'],
+  ['98.2%','Science stream · Curiosity backed by commitment.'],
+  ['98.0%','Commerce stream · Focused learning across subjects.'],
+  ['97.9%','Humanities stream · Confident expression and insight.'],
+  ['97.8%','Science stream · Precise thinking and perseverance.'],
+  ['97.7%','Commerce stream · Strong concepts and consistency.'],
+  ['97.6%','Humanities stream · Engaged learning with purpose.'],
+  ['97.5%','Science stream · Patient effort, strong outcomes.'],
+  ['97.4%','Commerce stream · Analytical and self-motivated.'],
+  ['97.2%','Humanities stream · Independent thought and rigour.']
+];
+document.querySelectorAll('.star-profile').forEach((profile,index)=>{
+  const [score,description]=starProfileCopy[index]||['97%+','Verified details required.'];
+  const scoreNode=profile.querySelector('strong');
+  const nameNode=profile.querySelector('h3');
+  const descriptionNode=profile.querySelector('p');
+  if(scoreNode)scoreNode.innerHTML=`${score} <small>sample</small>`;
+  if(nameNode)nameNode.textContent='Name pending verification';
+  if(descriptionNode)descriptionNode.textContent=description;
+});
+

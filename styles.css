@@ -982,3 +982,25 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   .star-showcase::after{height:250px}
   .footer-cta h2 em{text-align:left}
 }
+
+/* Final editorial polish. */
+:root{--section-y:100px}
+.utility-bar>p span{color:#000}
+.star-profile{border-radius:18px;background:#fffdf9}
+.star-profile>img{border-radius:18px 0 0 18px}
+.star-profile>div{position:relative}
+.star-profile>div::before{position:absolute;top:26px;right:28px;color:#c9bdb4;font-size:12px;font-weight:800;content:"Class XII"}
+.star-profile strong{font-variant-numeric:tabular-nums}
+.star-profile strong small{display:block;margin-top:9px;color:var(--muted);font-family:var(--font-body);font-size:10px;font-weight:800;text-transform:uppercase}
+.star-profile h3{max-width:12ch}
+.footer-cta h2 span{display:block;text-align:right}
+.search-shell h2 span,.search-shell h2 em{font-family:var(--font-display)!important;font-size:1em!important;font-style:normal;font-weight:800!important;line-height:1!important}
+.search-shell h2 em{color:var(--red)}
+.footer-wordmark{font-size:min(12.5vw,205px)}
+
+@media(max-width:900px){:root{--section-y:86px}}
+@media(max-width:680px){
+  :root{--section-y:72px}
+  .star-profile>div::before{top:16px;right:16px;font-size:9px}
+  .footer-cta h2 span{text-align:left}
+}
