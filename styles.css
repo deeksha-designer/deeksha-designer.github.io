@@ -1046,3 +1046,59 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   text-overflow:ellipsis;
   white-space:nowrap;
 }
+
+/* One-typeface system and one consistent vertical section rhythm. */
+:root{
+  --font-display:'Google Sans Flex',Arial,sans-serif;
+  --font-body:'Google Sans Flex',Arial,sans-serif;
+  --section-y:90px;
+}
+html body,
+html body button,
+html body input,
+html body textarea,
+html body select,
+html body [class],
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6{
+  font-family:'Google Sans Flex',Arial,sans-serif!important;
+}
+.section{
+  padding-top:90px!important;
+  padding-bottom:90px!important;
+}
+.footer-cta{
+  padding-top:90px;
+  padding-bottom:90px;
+}
+@media(max-width:680px){
+  .section{
+    padding-top:90px!important;
+    padding-bottom:90px!important;
+  }
+  .footer-cta{
+    padding-top:90px;
+    padding-bottom:90px;
+  }
+  .hero-slider{
+    height:830px;
+    min-height:830px;
+  }
+  .slide-copy{
+    bottom:220px;
+  }
+  .slide-copy h1,
+  .slide-copy h2{
+    font-size:30px!important;
+  }
+  .hero-actions{
+    bottom:82px;
+  }
+  .slider-controls{
+    bottom:18px;
+  }
+}
