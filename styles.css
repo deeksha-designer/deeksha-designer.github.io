@@ -428,6 +428,42 @@ main .section.reveal{opacity:0;transform:translateY(28px)}main .section.reveal.i
   .site-header .nav-trigger[aria-expanded=true]+.mega-menu{transform:translateY(0)}
 }
 
+/* Final motion, news and footer refinements. */
+.editorial-feed>a:not(.feature-story) img{height:220px;min-height:185px}
+.admission-intro h2>span,.admission-intro h2>em{display:block;white-space:nowrap}
+.admission-route article{opacity:0;transform:translateY(24px);transition:opacity .55s ease-out,transform .55s ease-out}
+.admissions.is-visible .admission-route article{opacity:1;transform:none}
+.admissions.is-visible .admission-route article:nth-child(2){transition-delay:.08s}
+.admissions.is-visible .admission-route article:nth-child(3){transition-delay:.16s}
+.admissions.is-visible .admission-route article:nth-child(4){transition-delay:.24s}
+.section img,.admission-route article,.faq-list details,.result-tabs button{transition:transform .18s ease-out,opacity .18s ease-out}
+@media(hover:hover){
+  .about-image:hover img,.principal-image:hover img,.beyond-mosaic figure:hover img,.visit-photo:hover img{transform:scale(1.018)}
+  .admission-route article:hover,.faq-list details:hover{transform:translateY(-4px)}
+}
+.site-footer{background:#123746;color:#fff}
+.footer-main{width:100%;max-width:none;padding-right:clamp(24px,4vw,72px);padding-left:clamp(24px,4vw,72px)}
+.footer-meta{margin-right:clamp(24px,4vw,72px);margin-left:clamp(24px,4vw,72px)}
+.footer-socials{align-items:center;gap:12px}
+.footer-socials .social-icon{display:grid;width:42px;height:42px;place-items:center;border:1px solid rgba(255,255,255,.42);border-radius:50%;color:#fff;transition:transform .18s ease-out,background-color .18s ease-out}
+.footer-socials .social-icon:hover{background:#fff;color:#123746;transform:translateY(-3px)}
+.footer-socials svg{width:18px;height:18px;fill:currentColor}
+.footer-socials .back-top{margin-left:10px;color:#fff;font-size:13px;text-underline-offset:5px}
+.footer-wordmark{width:100%;height:clamp(130px,16vw,240px);padding:0 clamp(24px,4vw,72px);background:linear-gradient(to bottom,rgba(255,255,255,.18),rgba(255,255,255,.025));background-clip:text;-webkit-background-clip:text;color:transparent;font-size:clamp(72px,12.8vw,190px)}
+
+@media(max-width:680px){
+  .admission-intro h2>span,.admission-intro h2>em{white-space:normal}
+  .editorial-feed>a:not(.feature-story) img{height:220px;min-height:185px}
+  .footer-main{padding-right:22px;padding-left:22px}
+  .footer-meta{margin-right:22px;margin-left:22px}
+  .footer-wordmark{padding-right:22px;padding-left:22px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .admission-route article,.admissions.is-visible .admission-route article{opacity:1;transform:none;transition:none}
+  .section img,.faq-list details,.result-tabs button,.footer-socials .social-icon{transition:none}
+}
+
 @media(max-width:1180px){
   .nav-shell nav.open{background:#fffaf6;padding-top:18px}
   .nav-trigger,.nav-contact{min-height:60px;font-family:'Montserrat',Arial,sans-serif;font-size:20px}
