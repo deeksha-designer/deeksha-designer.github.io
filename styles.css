@@ -1028,6 +1028,43 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   color:transparent;
   -webkit-text-fill-color:transparent;
 }
+
+/* Final heading rhythm and requested score treatment. */
+:root{--section-title-size:56px}
+.about .section-heading h2,
+.star-kids-head h2,
+.journey>.section-heading h2,
+.campus .section-heading h2,
+.principal-card h2,
+.why-heading h2,
+.beyond-title h2,
+.results .section-heading h2,
+.admission-intro h2,
+.news-head h2,
+.faq .section-heading h2,
+.visit-copy h2,
+.footer-cta h2{
+  font-size:var(--section-title-size)!important;
+  font-weight:800!important;
+  line-height:1.02;
+  letter-spacing:0!important;
+}
+.star-profile strong{
+  color:var(--red);
+  font-family:var(--font-display);
+  font-size:54px;
+  font-weight:600;
+  line-height:.95;
+}
+#why-title,#faq-title{max-width:none!important}
+#why-title .script-word,#faq-title .script-word{display:inline-block;white-space:nowrap}
+.footer-wordmark{letter-spacing:0!important}
+
+@media(max-width:900px){:root{--section-title-size:44px}}
+@media(max-width:680px){
+  :root{--section-title-size:34px}
+  .star-profile strong{font-size:38px}
+}
 @media(max-width:680px){
   .footer-cta{
     grid-template-columns:1fr;
