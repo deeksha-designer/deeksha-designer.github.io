@@ -1065,6 +1065,46 @@ h1,h2,h3,.slide-copy h1,.slide-copy h2,.section-heading h2,.why-heading h2,.news
   :root{--section-title-size:34px}
   .star-profile strong{font-size:38px}
 }
+
+/* Two-tone editorial headings: equal size, quieter black line, stronger brand line. */
+.about .section-heading h2,
+.star-kids-head h2,
+.journey>.section-heading h2,
+.campus .section-heading h2,
+.principal-card h2,
+.why-heading h2,
+.beyond-title h2,
+.results .section-heading h2,
+.admission-intro h2,
+.news-head h2,
+.faq .section-heading h2,
+.visit-copy h2,
+.footer-cta h2{font-weight:500!important}
+.about .section-heading h2 .script-word,
+.star-kids-head h2 .script-word,
+.journey>.section-heading h2 .script-word,
+.campus .section-heading h2 .script-word,
+.principal-card h2 .script-word,
+.why-heading h2 .script-word,
+.beyond-title h2 .script-word,
+.results .section-heading h2 .script-word,
+.admission-intro h2 .script-word,
+.news-head h2 .script-word,
+.faq .section-heading h2 .script-word,
+.visit-copy h2 .script-word,
+.footer-cta h2 .script-word{
+  color:var(--red);
+  font-size:1em;
+  font-weight:700!important;
+}
+.star-kids-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.55fr);
+  gap:30px 8vw;
+  align-items:end;
+  margin-bottom:46px;
+}
+@media(max-width:760px){.star-kids-head{grid-template-columns:1fr;gap:20px;margin-bottom:34px}}
 @media(max-width:680px){
   .footer-cta{
     grid-template-columns:1fr;
