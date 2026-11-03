@@ -1179,3 +1179,20 @@ html body h6{
     bottom:18px;
   }
 }
+
+/* Requested title-weight hierarchy for the banner, Star Kids and Admissions. */
+.slide-copy h1,
+.slide-copy h2,
+.star-kids-head h2,
+.admission-intro h2{
+  font-weight:500!important;
+}
+.slide-copy h1 em,
+.slide-copy h2 em,
+.star-kids-head h2>span,
+.admission-intro h2>em{
+  color:var(--red);
+  font-size:1em;
+  font-weight:600!important;
+}
+.admission-intro h2>span{font-weight:500!important}
