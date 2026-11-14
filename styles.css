@@ -1197,14 +1197,18 @@ html body h6{
 .alumni-head h2 .script-word{font-weight:600}
 .alumni-head>p:not(.section-context){max-width:48ch;margin:0;color:var(--muted)}
 .alumni-controls{display:flex;gap:10px}
+.alumni-track-wrap{position:relative}
+.alumni-track-wrap::after{position:absolute;z-index:2;top:0;right:-1px;width:clamp(56px,7vw,112px);height:100%;background:linear-gradient(90deg,rgba(244,240,232,0),#f4f0e8 92%);content:"";pointer-events:none}
 .alumni-track{display:flex;gap:22px;overflow-x:auto;padding:0;scroll-snap-type:x mandatory;scrollbar-width:none}
 .alumni-track::-webkit-scrollbar{display:none}
 .alumni-footer{display:flex;justify-content:flex-end;margin-top:24px}
 .alumni-card{flex:0 0 min(28vw,340px);min-width:260px;scroll-snap-align:start;background:#fff;overflow:hidden}
 .alumni-card img{height:300px;object-fit:cover}
 .alumni-card>div{padding:22px 24px 26px}
-.alumni-card h3{margin:0 0 8px;font-size:22px;font-weight:600}
-.alumni-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.alumni-card h3{margin:7px 0 8px;font-size:24px;font-weight:600;line-height:1.12}
+.alumni-card .alumni-role{display:block;color:var(--red);font-size:12px;font-weight:700;line-height:1.4;text-transform:uppercase}
+.alumni-card .alumni-year{margin:0 0 14px;color:var(--ink);font-size:13px;font-weight:700}
+.alumni-card .alumni-brief{display:-webkit-box;min-height:44px;margin:0;overflow:hidden;color:var(--muted);font-size:14px;line-height:1.55;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 @media(max-width:900px){
   .principal-slide{grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:44px}
   .alumni-head h2{font-size:44px}
@@ -1217,6 +1221,7 @@ html body h6{
   .principal-controls{right:22px;bottom:24px}
   .alumni-head{grid-template-columns:1fr;gap:18px;margin-bottom:32px}
   .alumni-head h2{font-size:34px}
+  .alumni-track-wrap::after{width:52px}
   .alumni-footer{justify-content:flex-end}
   .alumni-card{flex-basis:82vw}
   .alumni-card img{height:280px}
