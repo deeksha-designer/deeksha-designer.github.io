@@ -1206,9 +1206,11 @@ html body h6{
 .alumni-card img{height:300px;object-fit:cover}
 .alumni-card>div{padding:22px 24px 26px}
 .alumni-card h3{margin:7px 0 8px;font-size:24px;font-weight:600;line-height:1.12}
-.alumni-card .alumni-role{display:block;color:var(--red);font-size:12px;font-weight:700;line-height:1.4;text-transform:uppercase}
-.alumni-card .alumni-year{margin:0 0 14px;color:var(--ink);font-size:13px;font-weight:700}
+.alumni-card .alumni-role{display:block;padding-bottom:8px;color:var(--red);font-size:10px;font-weight:500;line-height:20px;text-transform:uppercase}
+.alumni-card .alumni-year{margin:0 0 18px;color:var(--ink);font-size:13px;font-weight:700}
 .alumni-card .alumni-brief{display:-webkit-box;min-height:44px;margin:0;overflow:hidden;color:var(--muted);font-size:14px;line-height:1.55;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.alumni-profile-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--red);font-size:14px;font-weight:700;text-decoration:none;text-underline-offset:5px}
+.alumni-profile-link:hover,.alumni-profile-link:focus-visible{text-decoration:underline}
 @media(max-width:900px){
   .principal-slide{grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:44px}
   .alumni-head h2{font-size:44px}
