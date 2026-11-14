@@ -130,6 +130,34 @@ const moveStarTrack=direction=>{
 document.querySelector('.star-prev')?.addEventListener('click',()=>moveStarTrack(-1));
 document.querySelector('.star-next')?.addEventListener('click',()=>moveStarTrack(1));
 
+const principalSlides=[...document.querySelectorAll('.principal-slide')];
+const principalStatus=document.querySelector('.principal-status');
+let principalIndex=0;
+function showPrincipal(index){
+  if(!principalSlides.length)return;
+  principalIndex=(index+principalSlides.length)%principalSlides.length;
+  principalSlides.forEach((slide,i)=>{
+    const active=i===principalIndex;
+    slide.classList.toggle('is-active',active);
+    slide.setAttribute('aria-hidden',String(!active));
+  });
+  if(principalStatus)principalStatus.textContent=`${principalIndex+1} / ${principalSlides.length}`;
+}
+document.querySelector('.principal-prev')?.addEventListener('click',()=>showPrincipal(principalIndex-1));
+document.querySelector('.principal-next')?.addEventListener('click',()=>showPrincipal(principalIndex+1));
+showPrincipal(0);
+
+const alumniTrack=document.querySelector('.alumni-track');
+const moveAlumni=direction=>{
+  if(!alumniTrack)return;
+  const card=alumniTrack.querySelector('.alumni-card');
+  const gap=parseFloat(getComputedStyle(alumniTrack).columnGap)||22;
+  const distance=(card?.getBoundingClientRect().width||alumniTrack.clientWidth*.8)+gap;
+  alumniTrack.scrollBy({left:direction*distance,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+};
+document.querySelector('.alumni-prev')?.addEventListener('click',()=>moveAlumni(-1));
+document.querySelector('.alumni-next')?.addEventListener('click',()=>moveAlumni(1));
+
 // Class XII profiles are explicitly marked samples until the school supplies
 // verified student names, exact scores and approved portraits.
 const starProfileCopy=[

@@ -1180,6 +1180,46 @@ html body h6{
   }
 }
 
+/* Leadership carousel keeps the approved principal composition while allowing a director message. */
+.principal{display:block;position:relative;padding-bottom:132px}
+.principal-slides{position:relative}
+.principal-slide{display:none;grid-template-columns:minmax(0,1.25fr) minmax(360px,.75fr);gap:clamp(56px,7vw,112px);align-items:center}
+.principal-slide.is-active{display:grid}
+.principal-slide[aria-hidden=true]{visibility:hidden}
+.principal-controls{position:absolute;right:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));bottom:48px;display:flex;align-items:center;gap:14px;color:var(--ink)}
+.principal-controls button,.alumni-controls button{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:transform .18s ease-out,background-color .18s ease-out}
+.principal-controls button:hover,.alumni-controls button:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-2px)}
+.principal-status{font-size:13px;font-weight:700;color:var(--muted)}
+.alumni{max-width:none;background:#f4f0e8;padding-right:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));padding-left:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)))}
+.alumni-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.65fr);gap:22px 8vw;align-items:end;margin-bottom:46px}
+.alumni-head .section-context{grid-column:1/-1;margin:0}
+.alumni-head h2{margin:0;font-size:56px;font-weight:500;line-height:1.02}
+.alumni-head h2 .script-word{font-weight:600}
+.alumni-head>p:not(.section-context){max-width:48ch;margin:0;color:var(--muted)}
+.alumni-controls{display:flex;gap:10px;justify-self:end}
+.alumni-track{display:flex;gap:22px;overflow-x:auto;padding:0 0 12px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.alumni-card{flex:0 0 min(28vw,340px);min-width:260px;scroll-snap-align:start;background:#fff;overflow:hidden}
+.alumni-card img{height:300px;object-fit:cover}
+.alumni-card>div{padding:22px 24px 26px}
+.alumni-card h3{margin:0 0 8px;font-size:22px;font-weight:600}
+.alumni-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+@media(max-width:900px){
+  .principal-slide{grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:44px}
+  .alumni-head h2{font-size:44px}
+  .alumni-card{flex-basis:42vw}
+}
+@media(max-width:680px){
+  .principal{padding-bottom:112px}
+  .principal-slide{display:none;grid-template-columns:1fr;gap:32px}
+  .principal-slide.is-active{display:grid}
+  .principal-controls{right:22px;bottom:42px}
+  .alumni-head{grid-template-columns:1fr;gap:18px;margin-bottom:32px}
+  .alumni-head h2{font-size:34px}
+  .alumni-controls{justify-self:start}
+  .alumni-card{flex-basis:82vw}
+  .alumni-card img{height:280px}
+}
+
 /* Requested title-weight hierarchy for the banner, Star Kids and Admissions. */
 .slide-copy h1,
 .slide-copy h2,
