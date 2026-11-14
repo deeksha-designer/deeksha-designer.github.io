@@ -1215,6 +1215,11 @@ html body h6{
   .alumni-card{flex-basis:42vw}
 }
 @media(max-width:680px){
+  .nav-shell{grid-template-columns:minmax(0,1fr) auto;gap:12px;padding-right:14px;padding-left:14px}
+  .nav-shell>.brand{min-width:0}
+  .nav-shell>.brand>span{min-width:0}
+  .nav-shell>.brand strong{overflow:hidden;font-size:18px;text-overflow:ellipsis}
+  .menu-toggle{padding:8px 0;font-size:13px}
   .principal{padding-bottom:112px}
   .principal-slide{display:none;grid-template-columns:1fr;gap:32px}
   .principal-slide.is-active{display:grid}
