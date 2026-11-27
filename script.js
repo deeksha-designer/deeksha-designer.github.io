@@ -1,37 +1,25 @@
 const menuButton=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#primary-nav');
-const navTriggers=[...document.querySelectorAll('.nav-trigger')];
-
-function closeMenus(except=null){navTriggers.forEach(trigger=>{if(trigger!==except)trigger.setAttribute('aria-expanded','false')})}
-let menuCloseTimer;
-function openDesktopMenu(trigger){
-  clearTimeout(menuCloseTimer);
-  closeMenus(trigger);
-  trigger.setAttribute('aria-expanded','true');
+const menuClose=document.querySelector('.menu-close');
+let menuReturnFocus=null;
+function setMenu(open){
+  if(!menuButton||!nav)return;
+  menuButton.setAttribute('aria-expanded',String(open));
+  menuButton.setAttribute('aria-label',open?'Close full menu':'Open full menu');
+  nav.classList.toggle('is-open',open);
+  nav.setAttribute('aria-hidden',String(!open));
+  document.body.classList.toggle('menu-open',open);
+  if(open){
+    menuReturnFocus=document.activeElement;
+    requestAnimationFrame(()=>menuClose?.focus());
+  }else if(menuReturnFocus instanceof HTMLElement){
+    menuReturnFocus.focus();
+  }
 }
-function scheduleDesktopMenuClose(trigger){
-  clearTimeout(menuCloseTimer);
-  menuCloseTimer=setTimeout(()=>trigger.setAttribute('aria-expanded','false'),180);
-}
-navTriggers.forEach(trigger=>{
-  trigger.addEventListener('click',()=>{const open=trigger.getAttribute('aria-expanded')==='true';closeMenus(trigger);trigger.setAttribute('aria-expanded',String(!open))});
-  const navItem=trigger.parentElement;
-  const menu=document.querySelector(`#${trigger.getAttribute('aria-controls')}`);
-  trigger.addEventListener('mouseenter',()=>{if(innerWidth>1180)openDesktopMenu(trigger)});
-  navItem.addEventListener('mouseleave',()=>{if(innerWidth>1180)scheduleDesktopMenuClose(trigger)});
-  menu.addEventListener('mouseenter',()=>clearTimeout(menuCloseTimer));
-  menu.addEventListener('mouseleave',()=>{if(innerWidth>1180)scheduleDesktopMenuClose(trigger)});
-  trigger.addEventListener('keydown',event=>{
-    if(['ArrowDown','Enter',' '].includes(event.key)){
-      event.preventDefault();closeMenus(trigger);trigger.setAttribute('aria-expanded','true');menu.querySelector('a')?.focus();
-    }
-    if(event.key==='Escape'){trigger.setAttribute('aria-expanded','false');trigger.focus()}
-  })
-});
-document.addEventListener('click',event=>{if(!event.target.closest('.nav-item'))closeMenus()});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'){const openTrigger=navTriggers.find(trigger=>trigger.getAttribute('aria-expanded')==='true');if(openTrigger){closeMenus();openTrigger.focus()}}});
-menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open);document.body.classList.toggle('menu-open',!open)});
-nav.addEventListener('click',event=>{if(event.target.closest('a')&&innerWidth<=1180){menuButton.setAttribute('aria-expanded','false');nav.classList.remove('open');document.body.classList.remove('menu-open')}});
+menuButton?.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));
+menuClose?.addEventListener('click',()=>setMenu(false));
+nav?.addEventListener('click',event=>{if(event.target.closest('a'))setMenu(false)});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav?.classList.contains('is-open'))setMenu(false)});
 
 const stageContent={
   pre:{label:'Pre-Primary',title:'Early foundations, thoughtfully begun.',body:'The school serves learners from Pre-Nursery onward. Detailed stage curriculum, assessment and activity information awaits academic approval.',image:'assets/gallery-joy.jpg',alt:'A young Scholars Pride learner'},
@@ -50,7 +38,7 @@ document.querySelectorAll('[data-select-stage]').forEach(link=>link.addEventList
 const results={x:{year:'2025–26',title:'Class X results',body:'Open the school-published result image for the stated academic year.',href:'https://www.scholarspride.edu.in/wp-content/uploads/2026/04/Class-X-Insta.jpg'},xii:{year:'2024–25',title:'Class XII results',body:'Open the official result PDF published by the school.',href:'https://www.scholarspride.edu.in/wp-content/uploads/2025/12/Result-Class-XII.pdf'},jee:{year:'2024–25',title:'JEE Main achievements',body:'Open the official JEE Main achievement PDF published by the school.',href:'https://www.scholarspride.edu.in/wp-content/uploads/2025/12/Jee-Mains-2024-25.pdf'}};
 const resultTabs=[...document.querySelectorAll('.result-tabs button')];
 const resultPanel=document.querySelector('#result-panel');
-resultTabs.forEach(tab=>tab.addEventListener('click',()=>{resultTabs.forEach(item=>item.setAttribute('aria-selected',String(item===tab)));const item=results[tab.dataset.result];resultPanel.innerHTML=`<p class="result-year">${item.year}</p><h3>${item.title}</h3><p>${item.body}</p><a class="button" href="${item.href}">View original source ↗</a>`}));
+resultTabs.forEach(tab=>tab.addEventListener('click',()=>{resultTabs.forEach(item=>item.setAttribute('aria-selected',String(item===tab)));const item=results[tab.dataset.result];resultPanel.innerHTML=`<p class="result-year">${item.year}</p><h3>${item.title}</h3><p>${item.body}</p><a class="cta cta-filled" href="${item.href}">View original source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`}));
 
 const slides=[...document.querySelectorAll('.slide')];
 const dotsWrap=document.querySelector('.slider-dots');
