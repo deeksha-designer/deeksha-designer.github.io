@@ -1305,39 +1305,6 @@ html body h6{
 .fullscreen-menu .cta-outlined:hover,.fullscreen-menu .cta-outlined:focus-visible{background:var(--white);color:var(--red)}
 .journey.section.container-fluid{background:#eaf6fb}
 
-/* Layout correction: section fields stay full-bleed; only their content uses the shared frame. */
-.section.container-fluid{
-  width:100%;
-  max-width:none;
-  margin-inline:0;
-  padding-inline:0;
-}
-.journey.section.container-fluid{
-  background:#fff0e5;
-  padding-inline:0;
-}
-.journey.section.container-fluid > .section-heading,
-.journey.section.container-fluid > .journey-layout{
-  width:min(var(--container-max),calc(100% - (2 * var(--gutter))));
-  max-width:var(--container-max);
-  margin-inline:auto;
-}
-.journey.section.container-fluid > .journey-layout{margin-top:38px}
-
-/* Admission enquiry is a light invitation with brand-red type and actions. */
-.admissions.section.container{
-  background:#fff;
-  color:var(--ink);
-}
-.admissions .admission-intro h2,
-.admissions .admission-intro h2 em,
-.admissions .section-context{color:var(--red)}
-.admissions .admission-route article{background:#fff0e5}
-
-/* Keep hero copy and actions on the same common left edge as the page frame. */
-.hero-slider .slide-copy,
-.hero-slider .hero-actions{left:max(var(--gutter),calc((100vw - var(--container-max))/2 + var(--gutter)))}
-
 /* Explicit Font Awesome family fallbacks prevent missing-glyph squares if the CDN is delayed. */
 .fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands{
   display:inline-block;
@@ -1351,10 +1318,6 @@ html body h6{
 .fa-regular,.far{font-family:"Font Awesome 7 Free","Font Awesome 6 Free","FontAwesome";font-weight:400}
 .fa-brands,.fab{font-family:"Font Awesome 7 Brands","Font Awesome 6 Brands","Font Awesome 5 Brands","FontAwesome";font-weight:400}
 
-@media(max-width:680px){
-  .journey.section.container-fluid > .section-heading,
-  .journey.section.container-fluid > .journey-layout{width:calc(100% - (2 * var(--gutter)))}
-}
 @media(max-width:980px){
   .redesigned-header .primary-links{display:none}
   .redesigned-header .nav-shell{grid-template-columns:1fr auto}
