@@ -9,12 +9,8 @@ function setMenu(open){
   nav.classList.toggle('is-open',open);
   nav.setAttribute('aria-hidden',String(!open));
   document.body.classList.toggle('menu-open',open);
-  if(open){
-    menuReturnFocus=document.activeElement;
-    requestAnimationFrame(()=>menuClose?.focus());
-  }else if(menuReturnFocus instanceof HTMLElement){
-    menuReturnFocus.focus();
-  }
+  if(open){menuReturnFocus=document.activeElement;requestAnimationFrame(()=>menuClose?.focus())}
+  else if(menuReturnFocus instanceof HTMLElement){menuReturnFocus.focus()}
 }
 menuButton?.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));
 menuClose?.addEventListener('click',()=>setMenu(false));
@@ -38,7 +34,7 @@ document.querySelectorAll('[data-select-stage]').forEach(link=>link.addEventList
 const results={x:{year:'2025–26',title:'Class X results',body:'Open the school-published result image for the stated academic year.',href:'https://www.scholarspride.edu.in/wp-content/uploads/2026/04/Class-X-Insta.jpg'},xii:{year:'2024–25',title:'Class XII results',body:'Open the official result PDF published by the school.',href:'https://www.scholarspride.edu.in/wp-content/uploads/2025/12/Result-Class-XII.pdf'},jee:{year:'2024–25',title:'JEE Main achievements',body:'Open the official JEE Main achievement PDF published by the school.',href:'https://www.scholarspride.edu.in/wp-content/uploads/2025/12/Jee-Mains-2024-25.pdf'}};
 const resultTabs=[...document.querySelectorAll('.result-tabs button')];
 const resultPanel=document.querySelector('#result-panel');
-resultTabs.forEach(tab=>tab.addEventListener('click',()=>{resultTabs.forEach(item=>item.setAttribute('aria-selected',String(item===tab)));const item=results[tab.dataset.result];resultPanel.innerHTML=`<p class="result-year">${item.year}</p><h3>${item.title}</h3><p>${item.body}</p><a class="cta cta-filled" href="${item.href}">View original source <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`}));
+resultTabs.forEach(tab=>tab.addEventListener('click',()=>{resultTabs.forEach(item=>item.setAttribute('aria-selected',String(item===tab)));const item=results[tab.dataset.result];resultPanel.innerHTML=`<p class="result-year">${item.year}</p><h3>${item.title}</h3><p>${item.body}</p><a class="button" href="${item.href}">View original source ↗</a>`}));
 
 const slides=[...document.querySelectorAll('.slide')];
 const dotsWrap=document.querySelector('.slider-dots');
